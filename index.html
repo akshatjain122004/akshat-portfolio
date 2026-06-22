@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Akshat Jain | Data Scientist and ML Engineer</title>
-    
+
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Akshat Jain - Machine learning practitioner building data-driven systems with Python and real-world datasets.">
+    <meta name="description"
+        content="Akshat Jain - Machine learning practitioner building data-driven systems with Python and real-world datasets.">
     <meta name="keywords" content="Akshat Jain, AI & Data Science Student | Machine Learning | Python | Data Analysis">
     <meta name="author" content="Akshat Jain">
-    
+
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Akshat Jain | Data Scientist">
-    <meta property="og:description" content="Machine learning practitioner building data-driven systems with Python and real-world datasets.">
+    <meta property="og:description"
+        content="Machine learning practitioner building data-driven systems with Python and real-world datasets.">
     <meta property="og:url" content="https://akshatjain122004.com">
-    
+
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Akshat Jain | Data Scientist">
-    <meta name="twitter:description" content="Machine learning practitioner building data-driven systems with Python and real-world datasets.">
+    <meta name="twitter:description"
+        content="Machine learning practitioner building data-driven systems with Python and real-world datasets.">
     <meta name="twitter:creator" content="@akshatjain1204">
     <style>
         :root {
@@ -31,14 +35,14 @@
             --link-color: #57c754;
             --link-hover: #7de87a;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
         }
-        
+
         body {
             background-color: var(--background);
             color: var(--text-color);
@@ -49,12 +53,12 @@
             align-items: center;
             min-height: 100vh;
         }
-        
+
         .container {
             width: 100%;
             max-width: 800px;
         }
-        
+
         .terminal {
             background-color: var(--terminal-bg);
             border-radius: 8px;
@@ -62,7 +66,7 @@
             overflow: hidden;
             width: 100%;
         }
-        
+
         .terminal-header {
             background: linear-gradient(to bottom, #e4e4e4, #c8c8c8);
             height: 28px;
@@ -71,33 +75,33 @@
             padding: 0 10px;
             position: relative;
         }
-        
+
         .terminal-buttons {
             display: flex;
             gap: 6px;
         }
-        
+
         .terminal-button {
             width: 12px;
             height: 12px;
             border-radius: 50%;
         }
-        
+
         .close-button {
             background-color: #ff5f56;
             border: 1px solid #e0443e;
         }
-        
+
         .minimize-button {
             background-color: #ffbd2e;
             border: 1px solid #dea123;
         }
-        
+
         .maximize-button {
             background-color: #27c93f;
             border: 1px solid #1aab29;
         }
-        
+
         .terminal-title {
             position: absolute;
             left: 0;
@@ -107,7 +111,7 @@
             color: #4d4d4d;
             pointer-events: none;
         }
-        
+
         .terminal-body {
             padding: 12px;
             font-size: 14px;
@@ -116,36 +120,36 @@
             white-space: pre-wrap;
             scroll-behavior: smooth;
         }
-        
+
         .prompt {
             color: var(--prompt-color);
             margin-right: 5px;
             white-space: nowrap;
         }
-        
+
         .path {
             color: var(--path-color);
             margin-right: 5px;
             white-space: nowrap;
         }
-        
+
         .output-line {
             margin-bottom: 10px;
             line-height: 1.5;
             word-wrap: break-word;
         }
-        
+
         .link {
             color: var(--link-color);
             text-decoration: none;
             border-bottom: 1px dotted var(--link-color);
             transition: color 0.3s ease;
         }
-        
+
         .link:hover {
             color: var(--link-hover);
         }
-        
+
         #terminal-input {
             background: transparent;
             border: none;
@@ -156,19 +160,40 @@
             flex: 1;
             caret-color: var(--text-color);
         }
-        
+
         @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
+
+            0%,
+            50% {
+                opacity: 1;
+            }
+
+            51%,
+            100% {
+                opacity: 0;
+            }
         }
-        
+
         @keyframes matrixRain {
-            0% { transform: translateY(-100%); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(100vh); opacity: 0; }
+            0% {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
         }
-        
+
         .matrix-rain {
             position: fixed;
             top: 0;
@@ -179,7 +204,7 @@
             z-index: 9999;
             overflow: hidden;
         }
-        
+
         .matrix-column {
             position: absolute;
             top: -100%;
@@ -189,53 +214,99 @@
             animation: matrixRain 3s linear;
             text-shadow: 0 0 5px #00ff00;
         }
-        
+
         @keyframes hackingProgress {
-            0% { width: 0%; }
-            100% { width: 100%; }
+            0% {
+                width: 0%;
+            }
+
+            100% {
+                width: 100%;
+            }
         }
-        
+
         .progress-bar {
             height: 20px;
             background: linear-gradient(90deg, #00ff00, #00aa00);
             animation: hackingProgress 2s ease-out forwards;
             box-shadow: 0 0 10px #00ff00;
         }
-        
+
         @keyframes coffeeStream {
-            0% { transform: translateY(0) scaleY(0); opacity: 0; }
-            50% { opacity: 1; }
-            100% { transform: translateY(20px) scaleY(1); opacity: 0; }
+            0% {
+                transform: translateY(0) scaleY(0);
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(20px) scaleY(1);
+                opacity: 0;
+            }
         }
-        
+
         .coffee-animation {
             display: inline-block;
             animation: pulse 2s ease-in-out infinite;
         }
-        
+
         @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
         }
-        
+
         @keyframes glitchText {
-            0% { transform: translate(0); }
-            20% { transform: translate(-2px, 2px); }
-            40% { transform: translate(-2px, -2px); }
-            60% { transform: translate(2px, 2px); }
-            80% { transform: translate(2px, -2px); }
-            100% { transform: translate(0); }
+            0% {
+                transform: translate(0);
+            }
+
+            20% {
+                transform: translate(-2px, 2px);
+            }
+
+            40% {
+                transform: translate(-2px, -2px);
+            }
+
+            60% {
+                transform: translate(2px, 2px);
+            }
+
+            80% {
+                transform: translate(2px, -2px);
+            }
+
+            100% {
+                transform: translate(0);
+            }
         }
-        
+
         .glitch {
             animation: glitchText 0.3s infinite;
         }
-        
+
         @keyframes fadeInOut {
-            0%, 100% { opacity: 0; }
-            50% { opacity: 1; }
+
+            0%,
+            100% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
         }
-        
+
         .crack {
             position: fixed;
             top: 0;
@@ -244,7 +315,7 @@
             height: 100%;
             pointer-events: none;
             z-index: 10000;
-            background: 
+            background:
                 linear-gradient(90deg, transparent 48%, #ff0000 48%, #ff0000 52%, transparent 52%),
                 linear-gradient(45deg, transparent 48%, #ff0000 48%, #ff0000 52%, transparent 52%),
                 linear-gradient(-45deg, transparent 48%, #ff0000 48%, #ff0000 52%, transparent 52%),
@@ -256,35 +327,79 @@
             opacity: 0;
             animation: crackAppear 2s forwards;
         }
-        
+
         @keyframes crackAppear {
-            0% { opacity: 0; }
-            100% { opacity: 0.8; }
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 0.8;
+            }
         }
-        
+
         @keyframes flickerLights {
-            0%, 100% { filter: brightness(1); }
-            10% { filter: brightness(0.3); }
-            15% { filter: brightness(1); }
-            25% { filter: brightness(0.2); }
-            30% { filter: brightness(1); }
-            45% { filter: brightness(0.4); }
-            50% { filter: brightness(1); }
+
+            0%,
+            100% {
+                filter: brightness(1);
+            }
+
+            10% {
+                filter: brightness(0.3);
+            }
+
+            15% {
+                filter: brightness(1);
+            }
+
+            25% {
+                filter: brightness(0.2);
+            }
+
+            30% {
+                filter: brightness(1);
+            }
+
+            45% {
+                filter: brightness(0.4);
+            }
+
+            50% {
+                filter: brightness(1);
+            }
         }
-        
+
         @keyframes flipPage {
-            0% { transform: rotate(0deg) scale(1); }
-            20% { transform: rotate(5deg) scale(1.02); }
-            40% { transform: rotate(-5deg) scale(1.02); }
-            60% { transform: rotate(5deg) scale(1.02); }
-            80% { transform: rotate(-5deg) scale(1.02); }
-            100% { transform: rotate(180deg) scale(1); }
+            0% {
+                transform: rotate(0deg) scale(1);
+            }
+
+            20% {
+                transform: rotate(5deg) scale(1.02);
+            }
+
+            40% {
+                transform: rotate(-5deg) scale(1.02);
+            }
+
+            60% {
+                transform: rotate(5deg) scale(1.02);
+            }
+
+            80% {
+                transform: rotate(-5deg) scale(1.02);
+            }
+
+            100% {
+                transform: rotate(180deg) scale(1);
+            }
         }
-        
+
         .upside-down {
             animation: flipPage 3s ease-in-out forwards, flickerLights 3s ease-in-out;
         }
-        
+
         .stranger-text {
             position: fixed;
             top: 50%;
@@ -300,37 +415,42 @@
             pointer-events: none;
             letter-spacing: 5px;
         }
-        
+
         .typing-effect {
             overflow: hidden;
             white-space: nowrap;
             border-right: 2px solid var(--text-color);
             animation: typing 2s steps(40) forwards, blink 0.8s step-end infinite;
         }
-        
+
         @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
         }
-        
+
         .input-line {
             display: flex;
             margin-bottom: 10px;
         }
-        
+
         .ascii-art {
             color: var(--prompt-color);
             line-height: 1.2;
             margin-bottom: 15px;
         }
-        
+
         .tags {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
             margin-top: 5px;
         }
-        
+
         .tag {
             background-color: rgba(87, 199, 84, 0.2);
             color: var(--accent-color);
@@ -338,30 +458,30 @@
             border-radius: 4px;
             font-size: 12px;
         }
-        
+
         .project {
             margin-bottom: 15px;
             border-left: 2px solid var(--accent-color);
             padding-left: 10px;
         }
-        
+
         .help-command {
             color: var(--accent-color);
             font-weight: bold;
         }
-        
+
         .command-description {
             color: #a0a0a0;
             padding-left: 20px;
             margin-bottom: 8px;
         }
-        
+
         .autocomplete-hint {
             color: #666;
             margin-top: 5px;
             font-size: 12px;
         }
-        
+
         .command-button {
             display: inline-block;
             background-color: rgba(87, 199, 84, 0.15);
@@ -374,12 +494,12 @@
             font-size: 12px;
             transition: all 0.2s ease;
         }
-        
+
         .command-button:hover {
             background-color: rgba(87, 199, 84, 0.3);
             border-color: var(--accent-color);
         }
-        
+
         .mobile-commands {
             display: none;
             padding: 10px;
@@ -388,48 +508,49 @@
             margin-bottom: 10px;
             flex-wrap: wrap;
         }
-        
+
         .easter-egg {
             color: #ff69b4;
         }
-        
+
         .success {
             color: var(--accent-color);
         }
-        
+
         .warning {
             color: #ffbd2e;
         }
-        
+
         a {
             color: var(--link-color);
             text-decoration: none;
         }
-        
+
         a:hover {
             text-decoration: underline;
         }
-        
+
         @media (max-width: 600px) {
             body {
                 padding: 1rem;
             }
-            
+
             .terminal-body {
                 font-size: 12px;
                 height: 400px;
             }
-            
+
             .mobile-commands {
                 display: flex;
             }
-            
+
             .ascii-art {
                 font-size: 10px;
             }
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="terminal">
@@ -466,14 +587,14 @@
                 input.dispatchEvent(event);
             }
         }
-        
-        document.addEventListener('DOMContentLoaded', function() {
+
+        document.addEventListener('DOMContentLoaded', function () {
             const terminalBody = document.getElementById('terminal-body');
-            
+
             // Command history functionality with localStorage persistence
             let commandHistory = JSON.parse(localStorage.getItem('terminalHistory')) || [];
             let historyIndex = commandHistory.length;
-            
+
             // ASCII Art for the banner
             const asciiArt = `
      _       _ 
@@ -481,7 +602,7 @@
    / _ \ _  | |
   / ___ \ |_| |
  /_/   \_\___/                                  
-`;           
+`;
             // Command aliases
             const aliases = {
                 'bio': 'about',
@@ -496,10 +617,10 @@
                 'cv': 'resume',
                 'cls': 'clear'
             };
-            
+
             // Available commands
             const commands = {
-                help: function() {
+                help: function () {
                     return `<strong>Available Commands:</strong>
 
   <span class="help-command">help</span>              Show this help message
@@ -521,10 +642,10 @@
 <strong>Easter Eggs:</strong>
   <span style="color: #ff69b4;">sudo, hack, matrix, coffee, rocket, upsidedown</span> 😉`;
                 },
-                  //<span class="help-command">experience</span>        View my work experience <span style="color: #666;">(alias: exp, work)</span>
-                  // <span class="help-command">now</span>               What I'm currently working on
+                //<span class="help-command">experience</span>        View my work experience <span style="color: #666;">(alias: exp, work)</span>
+                // <span class="help-command">now</span>               What I'm currently working on
 
-                about: function() {
+                about: function () {
                     return `Hi, I'm Akshat Jain — a passionate Data Scientist and problem solver.
 
 Currently pursuing a B.Tech in Artificial Intelligence and Data Science at the College of Technology and Engineering, Udaipur (2023–2027). I focus on applying machine learning and data analysis techniques to solve real-world problems through hands-on projects.
@@ -535,55 +656,83 @@ Alongside machine learning, I enjoy implementing system-level logic and problem-
 
 I believe in building technology that is practical, reliable, and driven by real data.`;
                 },
-                
-//                 experience: function() {
-//                     return `<div class="project">
-// <strong>Golang Developer Intern</strong> — Euro Technologies
-// <span style="color: #666;">Aug 2025 - Nov 2025 | On-Site</span>
-// • Worked on developing an IAM platform MVP
-// • Developed backend using Go, Gin, Redis, enhancing authentication and scalability
-// • Designed secure endpoints for full OIDC authentication flow and session lifecycle
-// <div class="tags">
-//     <span class="tag">Go</span>
-//     <span class="tag">Gin</span>
-//     <span class="tag">Redis</span>
-//     <span class="tag">OIDC</span>
-//     <span class="tag">IAM</span>
-// </div>
-// </div>
 
-// <div class="project">
-// <strong>Software Engineering Intern</strong> — EF Polymer Ltd.
-// <span style="color: #666;">May 2024 - Jul 2025 | Hybrid (AgriTech startup valued at $70M+)</span>
-// • Developed a Sales & Warehouse Management System tailored to agri supply chains
-// • Implemented inventory tracking, analytics dashboards, and movement back-tracing
-// • Achieved 40% reduction in manual entries and 20% fewer mis-products
-// • Deployed system across multiple warehouses with successful production adoption
-// <div class="tags">
-//     <span class="tag">Zoho Creator</span>
-//     <span class="tag">Deluge</span>
-//     <span class="tag">Workflow Automation</span>
-//     <span class="tag">Analytics</span>
-// </div>
-// </div>
+                //                 experience: function() {
+                //                     return `<div class="project">
+                // <strong>Golang Developer Intern</strong> — Euro Technologies
+                // <span style="color: #666;">Aug 2025 - Nov 2025 | On-Site</span>
+                // • Worked on developing an IAM platform MVP
+                // • Developed backend using Go, Gin, Redis, enhancing authentication and scalability
+                // • Designed secure endpoints for full OIDC authentication flow and session lifecycle
+                // <div class="tags">
+                //     <span class="tag">Go</span>
+                //     <span class="tag">Gin</span>
+                //     <span class="tag">Redis</span>
+                //     <span class="tag">OIDC</span>
+                //     <span class="tag">IAM</span>
+                // </div>
+                // </div>
 
-// <div class="project">
-// <strong>Open Source Contributor</strong> — Kubernetes (CNCF)
-// <span style="color: #666;">Mar 2025 - Present | Remote</span>
-// • Fixed bugs in driver provisioning, binary generation, and container networking (Minikube)
-// • Enhanced GitHub Actions CI automation for image-testing reliability
-// • Actively collaborating in PR reviews and RFC discussions
-// <div class="tags">
-//     <span class="tag">Kubernetes</span>
-//     <span class="tag">Go</span>
-//     <span class="tag">CI/CD</span>
-//     <span class="tag">Open Source</span>
-// </div>
-// </div>`;
-//                 },
-                
-                projects: function() {
+                // <div class="project">
+                // <strong>Software Engineering Intern</strong> — EF Polymer Ltd.
+                // <span style="color: #666;">May 2024 - Jul 2025 | Hybrid (AgriTech startup valued at $70M+)</span>
+                // • Developed a Sales & Warehouse Management System tailored to agri supply chains
+                // • Implemented inventory tracking, analytics dashboards, and movement back-tracing
+                // • Achieved 40% reduction in manual entries and 20% fewer mis-products
+                // • Deployed system across multiple warehouses with successful production adoption
+                // <div class="tags">
+                //     <span class="tag">Zoho Creator</span>
+                //     <span class="tag">Deluge</span>
+                //     <span class="tag">Workflow Automation</span>
+                //     <span class="tag">Analytics</span>
+                // </div>
+                // </div>
+
+                // <div class="project">
+                // <strong>Open Source Contributor</strong> — Kubernetes (CNCF)
+                // <span style="color: #666;">Mar 2025 - Present | Remote</span>
+                // • Fixed bugs in driver provisioning, binary generation, and container networking (Minikube)
+                // • Enhanced GitHub Actions CI automation for image-testing reliability
+                // • Actively collaborating in PR reviews and RFC discussions
+                // <div class="tags">
+                //     <span class="tag">Kubernetes</span>
+                //     <span class="tag">Go</span>
+                //     <span class="tag">CI/CD</span>
+                //     <span class="tag">Open Source</span>
+                // </div>
+                // </div>`;
+                //                 },
+
+                projects: function () {
                     return `<div class="project">
+
+
+<strong>RAG-Based Documentation Chatbot</strong>
+Built a Retrieval-Augmented Generation chatbot that answers questions from technical documentation by chunking source PDFs with LangChain’s RecursiveCharacterTextSplitter and indexing embeddings (OpenAI text-embedding-3-large) in a Qdrant vector database.
+<div class="tags">
+    <span class="tag">Python</span>
+    <span class="tag">LangChain</span>
+    <span class="tag">Qdrant</span>
+    <span class="tag">OpenAI API</span>
+    <span class="tag">FastAPI</span>
+</div>
+<a href="https://github.com/akshatjain122004/RAG_Chat_Bot" target="_blank" class="link">→ View on Chrome Web Store</a>
+</div>
+
+<div class="project">
+<strong>CLI Coding Agent</strong>
+Built an autonomous AI coding agent using Chain-of-Thought prompting that reasons through tasks via structured
+START → PLAN → TOOL → OBSERVE → OUTPUT steps before generating code or responses.<div class="tags">
+    <span class="tag">Python</span>
+    <span class="tag">OpenAI GPT-4o</span>
+    <span class="tag">Pydantic</span>
+    <span class="tag">Chain of Thought</span>
+    <span class="tag">Tool Calling</span>
+</div>
+<a href="https://github.com/akshatjain122004/CLI_Coding_Agent" target="_blank" class="link">→ View on Chrome Web Store</a>
+</div>
+
+<div class="project">
 <strong>Movie Recommender System </strong>
 Built a Movie Recommender System that suggests personalized movies using TF-IDF vectorization and cosine similarity on movie metadata
 <div class="tags">
@@ -595,135 +744,114 @@ Built a Movie Recommender System that suggests personalized movies using TF-IDF 
 </div>
 <a href="https://github.com/akshatjain122004/movieRecommenderSystem" target="_blank" class="link">→ View on Chrome Web Store</a>
 </div>
-
-<div class="project">
-<strong>Movie Ticket Booking System - Savely</strong>
-Developed a console-based Movie Ticket Booking System using C with AVL trees and doubly linked lists for efficient show and seat management.
-<div class="tags">
-    <span class="tag">C</span>
-    <span class="tag">AVL Tree</span>
-    <span class="tag">Doubly Linked LIst </span>
-    <span class="tag">VS Code</span>
-</div>
-<a href="https://github.com/akshatjain122004/movieTicketBooking" target="_blank" class="link">→ View on Chrome Web Store</a>
-</div>
-
-<div class="project">
-<strong>Epilepsy Seizure Detection</strong>
-Developed an Epilepsy Seizure Detection system using machine learning on EEG data to classify seizure and non-seizure events.
-<div class="tags">
-    <span class="tag">Python</span>
-    <span class="tag">Data Preprocessing</span>
-    <span class="tag">Feature Scaling</span>
-    <span class="tag">Jupyter</span>
-</div>
-<a href="https://github.com/akshatjain122004/epileapsySeizureDetection" target="_blank" class="link">→ View on Chrome Web Store</a>
-</div>
 `;
                 },
-                
-                skills: function() {
-                    return `<strong>Languages:</strong>
+
+                skills: function () {
+                    return `<strong>GenAI & LLMs:</strong>
+<div class="tags">
+    <span class="tag">LangChain</span>
+    <span class="tag">LangGraph</span>
+    <span class="tag">RAG</span>
+    <span class="tag">VectorDB</span>
+    <span class="tag">Promt Engineering</span>
+    <span class="tag">API's</span>
+    <span class="tag">MCP</span>
+    <span class="tag">Voice Agents</span>
+</div>
+                    
+<strong>Languages:</strong>
 <div class="tags">
     <span class="tag">Python</span>
-    <span class="tag">Java</span>
-    <span class="tag">C</span>
     <span class="tag">C++</span>
     <span class="tag">SQL</span>
 </div>
 
-<strong>Frameworks & Tools:</strong>
+<strong>DataBase Tools:</strong>
 <div class="tags">
-    <span class="tag">Jupyter</span>
-    <span class="tag">Replit</span>
-    <span class="tag">Google Collab</span>
-    <span class="tag">GitHub</span>
-    <span class="tag">VS Code</span>
-    <span class="tag">Cisco Packet Tracer</span>
-    <span class="tag">Excel with AI</span>
-    <span class="tag">PostgreSQL</span>
+    <span class="tag">PowerBI</span>
+    <span class="tag">Excel(Advanced)</span>
+    <span class="tag">PostgresSQL</span>
+    <span class="tag">MongoDB</span>
+    <span class="tag">Qdrant</span>
 </div>
 
-<strong>Data & ML Concepts:</strong>
+<strong>Libraries:</strong>
 <div class="tags">
-    <span class="tag">Linear Algebra</span>
-    <span class="tag">Regression Analysis</span>
-    <span class="tag">Machine Learning</span>
     <span class="tag">Numpy</span>
     <span class="tag">Pandas</span>
+    <span class="tag">Matplotlib</span>
     <span class="tag">Scikit Learn</span>
     <span class="tag">Tensor Flow</span>
 </div>
 
-<strong>Framework:</strong>
+<strong>Supporting Tools:</strong>
 <div class="tags">
     <span class="tag">FastAPI</span>
-    </div>
-
-<strong>Other:</strong>
-<div class="tags">
-    <span class="tag">DSA</span>
-    <span class="tag">Open Source Collaboration</span>
-</div>`;
+    <span class="tag">Git</span>
+    <span class="tag">Docker</span>
+    <span class="tag">Hugging Face</span>
+    <span class="tag">Jupyter</span>
+    </div>`;
                 },
-                
-                contact: function() {
+
+                contact: function () {
                     return `You can reach me at <a href="mailto:akshatjain122004@gmail.com" class="link">akshatjain122004@gmail.com</a>
 Phone: +91 7597355622
 
 Feel free to reach out for collaboration opportunities or just to say hello!`;
                 },
-                
-                social: function() {
+
+                social: function () {
                     return `GitHub: <a href="https://github.com/akshatjain122004" target="_blank" class="link">github.com/akshatjain122004</a>
 LinkedIn: <a href="https://linkedin.com/in/akshatjain122004" target="_blank" class="link">linkedin.com/in/akshatjain122004</a>
 Portfolio: <a href="https://akshatjain122004.github.io/akshat-portfolio/" target="_blank" class="link">akshatjain122004.github.io/akshat-portfolio/</a>
 Twitter: <a href="https://x.com/akshatjain1204" target="_blank" class="link">twitter.com/akshatjain1204</a>`;
                 },
-                
-                git: function() {
+
+                git: function () {
                     window.open("https://github.com/akshatjain122004", "_blank");
                     return '<span class="success">✓ Opening GitHub profile in new tab...</span>';
                 },
-                
-                connect: function() {
+
+                connect: function () {
                     window.open("https://calendly.com/akshatjain122004/30min", "_blank");
                     return '<span class="success">✓ Opening Calendly to schedule a meeting...</span>';
                 },
-                
-                resume: function() {
+
+                resume: function () {
                     window.open("resume.pdf", "_blank");
                     return '<span class="success">✓ Opening resume in new tab...</span>';
                 },
-                
-//                 now: function() {
-//                     return `<strong>Currently Working On:</strong>
-// • Contributing to Kubernetes (Minikube) - fixing bugs in driver provisioning, binary generation, and container networking
-// • Enhancing GitHub Actions CI automation for image-testing reliability
-// • Actively participating in PR reviews and RFC discussions in CNCF community
-// • Exploring advanced Go patterns and microservices architecture
-// • Building projects with IAM, OIDC authentication flows, and distributed systems
 
-// <strong>Recent Achievements:</strong>
-// • WorldQuant IQC Stage 1 – 2nd Prize ($1,000): Ranked 98 globally in quantitative finance competition
-// • 5,000+ active users on Savely Chrome Extension
+                //                 now: function() {
+                //                     return `<strong>Currently Working On:</strong>
+                // • Contributing to Kubernetes (Minikube) - fixing bugs in driver provisioning, binary generation, and container networking
+                // • Enhancing GitHub Actions CI automation for image-testing reliability
+                // • Actively participating in PR reviews and RFC discussions in CNCF community
+                // • Exploring advanced Go patterns and microservices architecture
+                // • Building projects with IAM, OIDC authentication flows, and distributed systems
 
-// <span style="color: #666;">Last updated: November 2025</span>`;
-//                 },
-                
-                history: function() {
+                // <strong>Recent Achievements:</strong>
+                // • WorldQuant IQC Stage 1 – 2nd Prize ($1,000): Ranked 98 globally in quantitative finance competition
+                // • 5,000+ active users on Savely Chrome Extension
+
+                // <span style="color: #666;">Last updated: November 2025</span>`;
+                //                 },
+
+                history: function () {
                     if (commandHistory.length === 0) {
                         return 'No commands in history yet.';
                     }
                     return commandHistory.map((cmd, idx) => `${idx + 1}  ${cmd}`).join('\n');
                 },
-                
-                sudo: function() {
+
+                sudo: function () {
                     const currentInput = document.getElementById('terminal-input');
                     if (currentInput) {
                         currentInput.disabled = true;
                     }
-                    
+
                     setTimeout(() => {
                         const lines = [
                             '[sudo] password for akshatjain: ',
@@ -746,13 +874,13 @@ Twitter: <a href="https://x.com/akshatjain1204" target="_blank" class="link">twi
                     }, 100);
                     return '';
                 },
-                
-                hack: function() {
+
+                hack: function () {
                     const currentInput = document.getElementById('terminal-input');
                     if (currentInput) {
                         currentInput.disabled = true;
                     }
-                    
+
                     setTimeout(() => {
                         addOutput('<span style="color: #00ff00;">Initializing hack sequence...</span>');
                         setTimeout(() => {
@@ -774,18 +902,18 @@ Twitter: <a href="https://x.com/akshatjain1204" target="_blank" class="link">twi
                     }, 100);
                     return '';
                 },
-                
-                matrix: function() {
+
+                matrix: function () {
                     const currentInput = document.getElementById('terminal-input');
                     if (currentInput) {
                         currentInput.disabled = true;
                     }
-                    
+
                     // Create matrix rain effect
                     const matrixDiv = document.createElement('div');
                     matrixDiv.className = 'matrix-rain';
                     document.body.appendChild(matrixDiv);
-                    
+
                     const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
                     for (let i = 0; i < 50; i++) {
                         setTimeout(() => {
@@ -798,7 +926,7 @@ Twitter: <a href="https://x.com/akshatjain1204" target="_blank" class="link">twi
                             }
                             column.innerHTML = text;
                             matrixDiv.appendChild(column);
-                            
+
                             setTimeout(() => {
                                 column.remove();
                                 if (matrixDiv.children.length === 0) {
@@ -807,7 +935,7 @@ Twitter: <a href="https://x.com/akshatjain1204" target="_blank" class="link">twi
                             }, 3000);
                         }, i * 60);
                     }
-                    
+
                     setTimeout(() => {
                         addOutput('<span class="easter-egg" style="color: #00ff00; text-shadow: 0 0 10px #00ff00;">Wake up, Neo... 🕶️</span>');
                         setTimeout(() => {
@@ -818,16 +946,16 @@ Twitter: <a href="https://x.com/akshatjain1204" target="_blank" class="link">twi
                             createNewLine();
                         }, 2000);
                     }, 500);
-                    
+
                     return '';
                 },
-                
-                coffee: function() {
+
+                coffee: function () {
                     const currentInput = document.getElementById('terminal-input');
                     if (currentInput) {
                         currentInput.disabled = true;
                     }
-                    
+
                     setTimeout(() => {
                         addOutput('<span class="coffee-animation">☕ Brewing coffee...</span>');
                         setTimeout(() => {
@@ -851,13 +979,13 @@ Stay caffeinated and keep coding! 💻</span>`);
                     }, 100);
                     return '';
                 },
-                
-                rocket: function() {
+
+                rocket: function () {
                     const currentInput = document.getElementById('terminal-input');
                     if (currentInput) {
                         currentInput.disabled = true;
                     }
-                    
+
                     setTimeout(() => {
                         const frames = [
                             '      |\n      |\n     / \\\n    | * |\n   |* * *|\n  |* * * *|\n  |_______|',
@@ -878,46 +1006,46 @@ Stay caffeinated and keep coding! 💻</span>`);
                     }, 100);
                     return '';
                 },
-                
-                upsidedown: function() {
+
+                upsidedown: function () {
                     const currentInput = document.getElementById('terminal-input');
                     if (currentInput) {
                         currentInput.disabled = true;
                     }
-                    
+
                     setTimeout(() => {
                         // Create crack effect
                         const crackDiv = document.createElement('div');
                         crackDiv.className = 'crack';
                         document.body.appendChild(crackDiv);
-                        
+
                         // Create Stranger Things text
                         const stText = document.createElement('div');
                         stText.className = 'stranger-text';
                         stText.textContent = 'WELCOME TO THE UPSIDE DOWN';
                         document.body.appendChild(stText);
-                        
+
                         // Add flicker and flip to body
                         const container = document.querySelector('.container');
                         if (container) {
                             container.classList.add('upside-down');
                         }
-                        
+
                         // Terminal messages
                         addOutput('<span style="color: #ff0000; text-shadow: 0 0 5px #ff0000;">⚠ DIMENSIONAL BREACH DETECTED ⚠</span>');
-                        
+
                         setTimeout(() => {
                             addOutput('<span style="color: #ff0000;">Reality is fragmenting...</span>');
                         }, 1000);
-                        
+
                         setTimeout(() => {
                             addOutput('<span style="color: #8b0000;">The lights are flickering...</span>');
                         }, 2000);
-                        
+
                         setTimeout(() => {
                             addOutput('<span style="color: #ff4444;">RUN.</span>');
                         }, 3000);
-                        
+
                         // Remove effects and create new line after 6 seconds
                         setTimeout(() => {
                             crackDiv.remove();
@@ -929,11 +1057,11 @@ Stay caffeinated and keep coding! 💻</span>`);
                             createNewLine();
                         }, 6000);
                     }, 100);
-                    
+
                     return '';
                 },
-                
-                clear: function() {
+
+                clear: function () {
                     terminalBody.innerHTML = '';
                     const mobileCommands = document.getElementById('mobile-commands');
                     if (mobileCommands) {
@@ -941,33 +1069,33 @@ Stay caffeinated and keep coding! 💻</span>`);
                     }
                     return '';
                 },
-                
-                banner: function() {
+
+                banner: function () {
                     return `<pre class="ascii-art">${asciiArt}</pre>
 Welcome to Akshat Jain's Terminal. Type <span style="color: var(--accent-color)">help</span> to see available commands.`;
                 },
-                
-                ls: function() {
+
+                ls: function () {
                     return `about.txt  projects.md  skills.json  contact.md  resume.pdf  secrets/`;
                 },
-                
-                pwd: function() {
+
+                pwd: function () {
                     return `/Users/akshatjain/personal-site`;
                 },
-                
-                whoami: function() {
+
+                whoami: function () {
                     return `akshatjain`;
                 },
-                
-                date: function() {
+
+                date: function () {
                     return new Date().toString();
                 },
-                
-                echo: function(args) {
+
+                echo: function (args) {
                     return args.join(' ');
                 }
             };
-            
+
             // Simple Levenshtein distance for command suggestions
             function levenshteinDistance(a, b) {
                 const matrix = [];
@@ -992,27 +1120,27 @@ Welcome to Akshat Jain's Terminal. Type <span style="color: var(--accent-color)"
                 }
                 return matrix[b.length][a.length];
             }
-            
+
             // Process the command input
             function processCommand(input) {
                 const inputTrimmed = input.trim();
                 if (!inputTrimmed) return '';
-                
+
                 // Add to command history and save to localStorage
                 commandHistory.push(inputTrimmed);
                 historyIndex = commandHistory.length;
                 localStorage.setItem('terminalHistory', JSON.stringify(commandHistory.slice(-50))); // Keep last 50
-                
+
                 // Parse command and arguments
                 const args = inputTrimmed.split(' ');
                 let command = args[0].toLowerCase();
                 const commandArgs = args.slice(1);
-                
+
                 // Check for aliases
                 if (command in aliases) {
                     command = aliases[command];
                 }
-                
+
                 // Execute command if it exists
                 if (command in commands) {
                     if (typeof commands[command] === 'function') {
@@ -1025,11 +1153,11 @@ Welcome to Akshat Jain's Terminal. Type <span style="color: var(--accent-color)"
                     return commands[command];
                 } else {
                     // Suggest similar commands
-                    const suggestions = Object.keys(commands).filter(cmd => 
-                        cmd.startsWith(command.substring(0, 2)) || 
+                    const suggestions = Object.keys(commands).filter(cmd =>
+                        cmd.startsWith(command.substring(0, 2)) ||
                         levenshteinDistance(command, cmd) <= 2
                     );
-                    
+
                     let response = `Command not found: ${command}.`;
                     if (suggestions.length > 0) {
                         response += `\n\nDid you mean: ${suggestions.slice(0, 3).join(', ')}?`;
@@ -1038,13 +1166,13 @@ Welcome to Akshat Jain's Terminal. Type <span style="color: var(--accent-color)"
                     return response;
                 }
             }
-            
+
             // Create a new line in the terminal
             function createNewLine(withInput = true) {
                 const inputLine = document.createElement('div');
                 inputLine.className = 'input-line';
                 inputLine.innerHTML = `<span class="prompt">akshatjain@Akshat's-MacBook-Air</span><span class="path">personal-site %</span>&nbsp;`;
-                
+
                 if (withInput) {
                     const input = document.createElement('input');
                     input.type = 'text';
@@ -1052,45 +1180,45 @@ Welcome to Akshat Jain's Terminal. Type <span style="color: var(--accent-color)"
                     input.autocomplete = 'off';
                     input.spellcheck = false;
                     inputLine.appendChild(input);
-                    
+
                     terminalBody.appendChild(inputLine);
                     input.focus();
-                    
+
                     // Transfer event listeners to the new input
                     setupInputListeners(input);
                 }
-                
+
                 return inputLine;
             }
-            
+
             // Add command output to terminal
             function addOutput(content, isCommand = false) {
                 const outputLine = document.createElement('div');
                 outputLine.className = 'output-line';
-                
+
                 if (isCommand) {
                     outputLine.innerHTML = `<span class="prompt">akshatjain@Akshat's-MacBook-Air</span><span class="path">personal-site %</span> ${content}`;
                 } else {
                     outputLine.innerHTML = content;
                 }
-                
+
                 terminalBody.appendChild(outputLine);
                 terminalBody.scrollTop = terminalBody.scrollHeight;
             }
-            
+
             // Show autocomplete suggestions
             function showAutocompleteSuggestions(partial) {
                 const hintElement = document.getElementById('autocomplete-hint');
                 if (hintElement) {
                     hintElement.remove();
                 }
-                
+
                 if (!partial) return;
-                
+
                 const matches = Object.keys(commands)
                     .concat(Object.keys(aliases))
                     .filter(cmd => cmd.startsWith(partial.toLowerCase()) && cmd !== partial.toLowerCase());
-                
+
                 if (matches.length > 0) {
                     const hint = document.createElement('div');
                     hint.id = 'autocomplete-hint';
@@ -1100,35 +1228,35 @@ Welcome to Akshat Jain's Terminal. Type <span style="color: var(--accent-color)"
                     terminalBody.scrollTop = terminalBody.scrollHeight;
                 }
             }
-            
+
             // Setup event listeners for the input field
             function setupInputListeners(input) {
-                input.addEventListener('keydown', function(e) {
+                input.addEventListener('keydown', function (e) {
                     if (e.key === 'Enter') {
                         e.preventDefault();
                         const command = input.value;
-                        
+
                         // Remove autocomplete hint
                         const hintElement = document.getElementById('autocomplete-hint');
                         if (hintElement) {
                             hintElement.remove();
                         }
-                        
+
                         // Get the parent line and convert to static
                         const inputLine = input.parentElement;
                         const staticLine = document.createElement('div');
                         staticLine.className = 'output-line';
                         staticLine.innerHTML = `<span class="prompt">akshatjain@Akshat's-MacBook-Air</span><span class="path">personal-site %</span> ${command}`;
-                        
+
                         // Replace the input line with static line
                         inputLine.parentElement.replaceChild(staticLine, inputLine);
-                        
+
                         // Process the command and display output
                         const output = processCommand(command);
                         if (output) {
                             addOutput(output);
                         }
-                        
+
                         // Create a new input line
                         createNewLine();
                     } else if (e.key === 'ArrowUp') {
@@ -1169,12 +1297,12 @@ Welcome to Akshat Jain's Terminal. Type <span style="color: var(--accent-color)"
                     }
                 });
             }
-            
+
             // Initialize terminal with banner and first prompt
             function initializeTerminal() {
                 // Add banner first
                 addOutput(commands.banner());
-                
+
                 // Show welcome tip for first-time visitors
                 if (!localStorage.getItem('visitedBefore')) {
                     setTimeout(() => {
@@ -1182,22 +1310,23 @@ Welcome to Akshat Jain's Terminal. Type <span style="color: var(--accent-color)"
                         localStorage.setItem('visitedBefore', 'true');
                     }, 500);
                 }
-                
+
                 // Then add the first input line
                 createNewLine();
             }
-            
+
             // Auto-focus the input field when clicking on the terminal
-            terminalBody.addEventListener('click', function() {
+            terminalBody.addEventListener('click', function () {
                 const currentInput = document.getElementById('terminal-input');
                 if (currentInput) {
                     currentInput.focus();
                 }
             });
-            
+
             // Initialize the terminal when page loads
             initializeTerminal();
         });
     </script>
 </body>
+
 </html>
